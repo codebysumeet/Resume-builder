@@ -1,0 +1,206 @@
+.counter {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 16px;
+}
+
+.counter:hover {
+  border-color: var(--accent-border);
+}
+
+.counter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero .base {
+  width: 120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+}
+
+.hero .framework,
+.hero .vite {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hero .framework {
+  top: 20px;
+  height: 22px;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.hero .vite {
+  top: 80px;
+  height: 20px;
+  transform: translateX(-50%) scale(0.7);
+}
+
+/* CENTER */
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* NEXT STEPS */
+#next-steps {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+#next-steps > div {
+  padding: 20px;
+}
+
+#docs {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ICON */
+.icon {
+  margin-bottom: 12px;
+  width: 20px;
+  height: 20px;
+}
+
+/* LINKS */
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+#next-steps ul li {
+  flex: 1 1 calc(50% - 8px);
+}
+
+#next-steps ul a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  color: var(--text-h);
+  background: var(--social-bg);
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+#next-steps ul a:hover {
+  box-shadow: var(--shadow);
+}
+
+/* SPACER */
+#spacer {
+  height: 48px;
+  border-top: 1px solid var(--border);
+}
+
+/* TICKS */
+.ticks {
+  position: relative;
+  width: 100%;
+}
+
+.ticks::before,
+.ticks::after {
+  content: '';
+  position: absolute;
+  top: -4.5px;
+  border: 5px solid transparent;
+}
+
+.ticks::before {
+  left: 0;
+  border-left-color: var(--border);
+}
+
+.ticks::after {
+  right: 0;
+  border-right-color: var(--border);
+}
+
+/* ========================= */
+/* 💻 TABLET & DESKTOP */
+/* ========================= */
+
+@media (min-width: 768px) {
+  .counter {
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+
+  .hero .base {
+    width: 150px;
+  }
+
+  .hero .framework {
+    top: 30px;
+    transform: translateX(-50%) scale(1.3);
+  }
+
+  .hero .vite {
+    top: 100px;
+    transform: translateX(-50%) scale(0.8);
+  }
+
+  #center {
+    gap: 20px;
+    padding: 30px;
+  }
+
+  #next-steps {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  #docs {
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  #next-steps > div {
+    padding: 28px;
+  }
+
+  #next-steps ul li {
+    flex: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  #center {
+    gap: 25px;
+    padding: 32px 20px 24px;
+  }
+
+  #spacer {
+    height: 88px;
+  }
+}

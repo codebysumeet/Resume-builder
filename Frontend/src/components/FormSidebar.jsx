@@ -79,7 +79,7 @@ export default function FormSidebar({ data, updateData, onBack, onSave, isSaving
 
 
   return (
-    <aside className="form-section no-print">
+    <aside className="form-section no-print animate-slide-in-left">
       <header className="app-header">
         {onBack && (
           <button onClick={onBack} className="btn-back">

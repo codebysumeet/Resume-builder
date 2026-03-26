@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import FormSidebar from './FormSidebar';
 import LivePreview from './LivePreview';
 import { fetchResume, saveResume } from '../api';
@@ -44,7 +45,12 @@ const defaultData = {
   template: 'modern'
 };
 
-export default function BuilderPage({ onBack, initialId, setResumeId, initialTemplate }) {
+export default function BuilderPage() {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialId = searchParams.get('id');
+  const initialTemplate = searchParams.get('template');
+
   const [resumeData, setResumeData] = useState({ ...defaultData, template: initialTemplate || 'modern' });
   const [loading, setLoading] = useState(!!initialId);
   const [saving, setSaving] = useState(false);
@@ -68,8 +74,7 @@ export default function BuilderPage({ onBack, initialId, setResumeId, initialTem
     try {
       const saved = await saveResume(resumeData, initialId);
       if (!initialId) {
-        setResumeId(saved._id);
-        window.history.pushState({}, '', `?id=${saved._id}`);
+        setSearchParams({ id: saved._id });
       }
       alert('Resume saved successfully! You can share the current URL to view this resume later.');
     } catch (err) {
@@ -88,7 +93,7 @@ export default function BuilderPage({ onBack, initialId, setResumeId, initialTem
       <FormSidebar 
         data={resumeData} 
         updateData={setResumeData} 
-        onBack={onBack} 
+        onBack={() => navigate('/')} 
         onSave={handleSave} 
         isSaving={saving} 
       />

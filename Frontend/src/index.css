@@ -331,13 +331,10 @@ body { font-family: var(--font-main); height: 100vh; overflow: hidden; backgroun
   .hero-actions { flex-direction: column; width: 100%; margin-bottom: 3rem; gap: 1rem; }
   .hero-btn-primary, .hero-btn-secondary { width: 100%; }
   .feature-grid { grid-template-columns: 1fr; gap: 1rem; }
-<<<<<<< HEAD:Frontend/src/index.css
   .testimonials-grid { grid-template-columns: 1fr; gap: 1rem; }
   .testimonials-section { padding: 4rem 1.5rem 2rem; }
   .section-header { margin-bottom: 2rem; }
   .section-header h2 { font-size: 2rem; }
-=======
->>>>>>> c58960897824d172b63b475367c48e14df5674db:src/index.css
   
   /* Builder Sidebar */
   .form-section { width: 100%; height: auto; position: relative; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
@@ -361,3 +358,57 @@ body { font-family: var(--font-main); height: 100vh; overflow: hidden; backgroun
     margin-bottom: -180mm;
   }
 }
+
+/* =========================================
+   Animations (Premium & Smooth)
+   ========================================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Utility Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; /* Ensures it's hidden before animation starts */
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+/* Delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }

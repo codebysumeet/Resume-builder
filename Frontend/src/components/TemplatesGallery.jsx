@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import LivePreview from './LivePreview';
 
 const dummyData = {
@@ -22,12 +23,13 @@ const dummyData = {
   skills: 'JavaScript, React, Node.js, CSS, HTML5, SQL'
 };
 
-export default function TemplatesGallery({ onBack, onSelect }) {
+export default function TemplatesGallery() {
+  const navigate = useNavigate();
   const templates = ['modern', 'minimal', 'professional'];
 
   return (
     <div className="landing-page" style={{ padding: '4rem' }}>
-      <button onClick={onBack} className="btn-back" style={{ color: 'white', marginBottom: '2rem' }}>
+      <button onClick={() => navigate(-1)} className="btn-back" style={{ color: 'white', marginBottom: '2rem' }}>
         ← Back to Home
       </button>
       
@@ -42,7 +44,7 @@ export default function TemplatesGallery({ onBack, onSelect }) {
             key={tpl} 
             className="feat-card" 
             style={{ cursor: 'pointer', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-            onClick={() => onSelect(tpl)}
+            onClick={() => navigate(`/builder?template=${tpl}`)}
           >
             <h3 style={{ textTransform: 'capitalize', marginBottom: '1.5rem', fontSize: '1.5rem' }}>{tpl} Template</h3>
             <div style={{ 
